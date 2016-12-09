@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- We instantiate three guests -->
+	<bean id="guest1" class="org.cuatrovientos.springHotel.models.Guest"
+		p:name="Guest_1" p:dni="73418435C"/>
+	<bean id="guest2" class="org.cuatrovientos.springHotel.models.Guest"
+		p:name="Guest_2" p:dni="73463435C"/>
+	<bean id="guest3" class="org.cuatrovientos.springHotel.models.Guest"
+		p:name="Guest_3" p:dni="73418335C"/>
+		
+	<!-- We instantiate five rooms -->
+	<bean id="room1" class="org.cuatrovientos.springHotel.models.Room"
+		p:number="1" p:type="Suite" p:description="Luxurious" p:guest-ref="guest1"/>
+	<bean id="room2" class="org.cuatrovientos.springHotel.models.Room"
+		p:number="2" p:type="Lol" p:description="Lel" p:guest-ref="guest2"/>
+	<bean id="room3" class="org.cuatrovientos.springHotel.models.Room"
+		p:number="3" p:type="Player" p:description="Luxurious" p:guest-ref="guest3"/>
+	<bean id="room4" class="org.cuatrovientos.springHotel.models.Room"
+		p:number="4" p:type="Hacker" p:description="Hacker" p:guest="#{null}"/>
+	<bean id="room5" class="org.cuatrovientos.springHotel.models.Room"
+		p:number="5" p:type="SonLaLeche" p:description="ConFury" p:guest="#{null}"/>
+		
+	<bean id="hotel1" class="org.cuatrovientos.springHotel.models.Hotel">
+		<property name="name" value="Yei"/>
+		<property name="rooms">
+			<set>
+				<ref bean="room1" />
+				<ref bean="room2" />
+				<ref bean="room3" />
+				<ref bean="room4" />
+				<ref bean="room5" />
+			</set>
+		</property>
+	</bean>
+</beans>
